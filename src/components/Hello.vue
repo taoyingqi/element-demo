@@ -13,7 +13,7 @@
           <el-select v-model="levels[scope.$index]" @change="handleChange(scope.$index, scope.row)" placeholder="请选择">
             <el-option
               v-for="(level, index) in levelOptions"
-              :key="index"
+              :key="scope.$index + '-' + index"
               :label="level.label"
               :value="level.value">
             </el-option>
@@ -29,13 +29,7 @@ export default {
   name: 'hello',
   data () {
     return {
-      levels: [
-        {0: null},
-        {1: null},
-        {2: null},
-        {3: null},
-        {4: null}
-      ],
+      levels: [null, null, null, null],
       levelOptions: [
         {
           label: 'common',
